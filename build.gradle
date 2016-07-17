@@ -1,0 +1,37 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+  }
+}
+
+group 'info.jdavid.github.notifier'
+version '1.0.0'
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  jcenter()
+//  maven {
+//    url 'http://dl.bintray.com/programingjd/maven'
+//  }
+}
+
+dependencies {
+  compile 'org.codehaus.groovy:groovy-all:2.4.7'
+//  compile ('info.jdavid.ok.server:okserver:1.0') {
+//    artifact {
+//      name = 'okserver'
+//      extension = 'jar'
+//      type = 'jar'
+//      url = 'http://dl.bintray.com/programingjd/maven/info/jdavid/ok/server/okserver/1.0/'
+//    }
+//  }
+  testCompile 'com.squareup.okhttp3:okhttp:3.4.1'
+  testCompile 'info.jdavid.ok.json:okjson:3.4.1'
+}
