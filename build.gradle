@@ -32,6 +32,25 @@ dependencies {
 //      url = 'http://dl.bintray.com/programingjd/maven/info/jdavid/ok/server/okserver/1.0/'
 //    }
 //  }
-  testCompile 'com.squareup.okhttp3:okhttp:3.4.1'
-  testCompile 'info.jdavid.ok.json:okjson:3.4.1'
+  compile 'com.squareup.okhttp3:okhttp:3.4.1'
+  compile 'info.jdavid.ok.json:okjson:3.3.3'
+}
+
+task runScript(dependsOn: 'classes', type: JavaExec) {
+  main = 'info.jdavid.github.notifier.ReleaseNotifier'
+  classpath = sourceSets.main.runtimeClasspath
+  logging.captureStandardOutput LogLevel.LIFECYCLE
+  logging.captureStandardError  LogLevel.ERROR
+}
+
+jar {
+  from {
+    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+  from {
+    configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+  manifest {
+    attributes 'Main-Class': 'info.jdavid.github.notifier.ReleaseNotifier'
+  }
 }
