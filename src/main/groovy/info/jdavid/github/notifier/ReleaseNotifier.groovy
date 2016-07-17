@@ -81,6 +81,7 @@ public class ReleaseNotifier {
     if (campaign) {
       if (setCampaignContent(client, apiKey, server, campaign, owner, repo, newTags)) {
         if (sendCampaign(client, apiKey, server, campaign)) {
+          deleteCampaign(client, apiKey, server, campaign)
           return true
         }
       }
@@ -192,6 +193,7 @@ public class ReleaseNotifier {
 
   private static void deleteCampaign(final OkHttpClient client, final String apiKey, final String server,
                                      final String campaign) {
+    Thread.sleep(5000)
     final HttpUrl url = new HttpUrl.Builder().
       scheme('https').
       host("${server}.api.mailchimp.com").
