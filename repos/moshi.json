@@ -1,6 +1,1 @@
-{
-  "owner_type": "org",
-  "owner": "square",
-  "repo": "moshi",
-  "tags": []
-}
+{"owner":"square","repo":"moshi","owner_type":"org","tags":["moshi-parent-0.9.0","moshi-parent-1.0.0","moshi-parent-1.1.0","moshi-parent-1.2.0"]}
