@@ -211,10 +211,23 @@ public class ReleaseNotifier {
       response.body().close()
     }
     else {
-      println url
-      println response.body().string()
-      Thread.sleep(5000)
-      client.newCall(request).execute().body().close()
+      response.body().close()
+      Thread.sleep(15000)
+      if (!client.newCall(request).execute().with {
+        it.body().close()
+        it.isSuccessful()
+      }) {
+        Thread.sleep(30000)
+        client.newCall(request).execute().with {
+          if (it.isSuccessful()) {
+            body().close()
+          }
+          else {
+            println url
+            println response.body().string()
+          }
+        }
+      }
     }
   }
 
