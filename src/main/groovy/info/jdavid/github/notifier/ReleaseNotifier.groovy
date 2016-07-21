@@ -142,10 +142,12 @@ public class ReleaseNotifier {
       addPathSegment('content').
       build()
     final Map<String, ?> json = [
-      plain_text: $/
-  Repository: ${owner}/\${repo}
-  New ${newTags.size() == 1 ? 'Tag' : 'Tags'}: ${newTags.join(', ')}
-/$ as String,
+      plain_text: """\
+Repository: ${owner}/${repo} (http://github.com/${owner}/${repo}/releases
+
+New ${newTags.size() == 1 ? 'Tag' : 'Tags'}: ${newTags.join(', ')}
+
+""" as String,
     ]
     final Request request = new Request.Builder().
       url(url).
