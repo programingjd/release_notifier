@@ -143,10 +143,11 @@ public class ReleaseNotifier {
       build()
     final Map<String, ?> json = [
       plain_text: """\
-Repository: ${owner}/${repo} (http://github.com/${owner}/${repo}/releases
+Repository: ${owner}/${repo} (http://github.com/${owner}/${repo}/releases)
 
 New ${newTags.size() == 1 ? 'Tag' : 'Tags'}: ${newTags.join(', ')}
 
+.
 """ as String,
     ]
     final Request request = new Request.Builder().
