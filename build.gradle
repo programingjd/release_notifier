@@ -32,8 +32,8 @@ dependencies {
 //      url = 'http://dl.bintray.com/programingjd/maven/info/jdavid/ok/server/okserver/1.0/'
 //    }
 //  }
-  compile 'com.squareup.okhttp3:okhttp:3.4.2'
-  compile 'info.jdavid.ok.json:okjson:3.4.2'
+  compile 'com.squareup.okhttp3:okhttp:3.5.0'
+  compile 'info.jdavid.ok.json:okjson:3.5.0'
 }
 
 task runScript(dependsOn: 'classes', type: JavaExec) {
