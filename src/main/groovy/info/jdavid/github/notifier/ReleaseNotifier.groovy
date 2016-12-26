@@ -72,7 +72,12 @@ public class ReleaseNotifier {
 
   private static boolean send(final OkHttpClient client,
                               final String owner, final String repo, final List<String> newTags) {
-    final Properties props = new File('./local.properties').withReader {
+    final File local = new File(
+      new File(ReleaseNotifier.class.protectionDomain.codeSource.location.toURI()).
+        parentFile.parentFile.parentFile,
+      'local.properties'
+    )
+    final Properties props = local.withReader {
       final Properties props = new Properties()
       props.load(it)
       return props
