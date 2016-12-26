@@ -16,7 +16,11 @@ import okio.Okio
 public class ReleaseNotifier {
 
   public static void main(final String[] args) {
-    final File root = new File('./repos')
+    final File root = new File(
+      new File(ReleaseNotifier.class.protectionDomain.codeSource.location.toURI()).
+        parentFile.parentFile.parentFile,
+      'repos'
+    )
     if (!root.exists()) throw new RuntimeException("List of repos is missing.")
     final OkHttpClient client = new OkHttpClient.Builder().build()
     root.listFiles().collect { final File f ->
