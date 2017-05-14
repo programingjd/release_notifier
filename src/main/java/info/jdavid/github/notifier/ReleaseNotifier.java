@@ -185,7 +185,7 @@ public class ReleaseNotifier {
       build();
     final Map<String, ?> json = map(
       entry("plain_text",
-            "Repository: "+owner+"/"+repo+" (http://github.com/"+owner+"/"+repo+"/release)\n\n" +
+            "Repository: "+owner+"/"+repo+" (http://github.com/"+owner+"/"+repo+"/releases)\n\n" +
             "New " + (newTags.size() == 1 ? "Tag" : "Tags") + ":" + String.join(", ", newTags) +
             "\n\n.\n")
     );
