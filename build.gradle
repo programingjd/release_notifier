@@ -19,8 +19,8 @@ repositories {
 }
 
 dependencies {
-  compile 'com.squareup.okhttp3:okhttp:3.6.0'
-  compile 'info.jdavid.ok.json:okjson:3.6.0.1'
+  compile 'com.squareup.okhttp3:okhttp:3.8.0'
+  compile 'info.jdavid.ok.json:okjson:3.8.0.0'
 }
 
 task runScript(dependsOn: 'classes', type: JavaExec) {
